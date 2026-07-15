@@ -36,7 +36,11 @@ app = FastAPI(title="ParchiTrack Backend")
 # Enable CORS for Next.js frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # For local development we allow all
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "http://192.168.1.12:3000",
+    ],  # For local development we allow specific origins instead of wildcard when credentials are true
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
